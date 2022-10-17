@@ -41,10 +41,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent (Login.this, Register.class);
         startActivity( intent );
     }
-    public void OlvideContr (View v){
-        Intent intent = new Intent (Login.this, OlvideCont.class);
-        startActivity( intent );
-    }
+
     public void iniciarSesion (View v){
         CampoUsuario = findViewById(R.id.user);
         CampoCont = findViewById(R.id.contrasenia);
@@ -65,7 +62,11 @@ public class Login extends AppCompatActivity {
             }
         }
     }
-
+    public void OlvideContr (View v){
+        Intent intent = new Intent (Login.this, OlvideCont.class);
+        intent.putExtra("usuario",CampoUsuario.getText());
+        startActivity( intent );
+    }
     public byte[] createSha1( String text )
     {
         MessageDigest messageDigest = null;

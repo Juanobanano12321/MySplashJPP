@@ -16,21 +16,23 @@ import java.io.InputStreamReader;
 public class PagPrincipal extends AppCompatActivity{
 
     public TextView textoJson = null;
-
+    Bundle User;
+    String Usuario_def;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagprincipal);
         textoJson = this.findViewById(R.id.texto12);
         textoJson.setText(LeerArchivo());
-
+        User = getIntent().getExtras();
+        Usuario_def = User.getString("usuario");
     }
 
 
     public String LeerArchivo(){
         String ret = "";
         try {
-            InputStream inputStream = getApplicationContext().openFileInput("MySplashhJp\\app\\src\\main\\java\\com\\example\\mysplashhjp\\"+"Jorges"+"1.txt");
+            InputStream inputStream = getApplicationContext().openFileInput("MySplashhJp\\app\\src\\main\\java\\com\\example\\mysplashhjp\\"+Usuario_def+"1.txt");
             if ( inputStream != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
